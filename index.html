@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clima Agora</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="theme-toggle">
+        <button id="toggleTheme">🌙 Tema escuro</button>
+    </div>
+
+    <div class="app-container">
+
+        <h1 class="title">Previsão do Tempo</h1>
+
+        <div class="search-area">
+            <input type="text" id="cityInput" placeholder="Digite o nome da cidade...">
+            <div id="autocompleteList" class="autocomplete-list"></div>
+            <button id="searchBtn">Buscar</button>
+        </div>
+
+        <div id="weatherInfo" class="weather-container hidden fade-in">
+
+            <div class="weather-card main-card">
+                <h2 id="cityName"></h2>
+                <img id="weatherIcon" class="icon-large" src="" alt="Ícone do clima">
+                <p id="weatherDesc"></p>
+            </div>
+
+            <div class="weather-card">
+                <h3>Temperatura</h3>
+                <div class="emoji">🌡️</div>
+                <p id="temperature"></p>
+            </div>
+
+            <div class="weather-card">
+                <h3>Umidade</h3>
+                <div class="emoji">💧</div>
+                <p id="humidity"></p>
+            </div>
+
+            <div class="weather-card">
+                <h3>Clima</h3>
+                <div class="emoji">🌥️</div>
+                <p id="mainWeather"></p>
+            </div>
+
+        </div>
+
+        <h2 id="nextDaysTitle" class="hidden section-title">Previsão para 5 dias</h2>
+
+        <div id="forecastContainer" class="forecast-container hidden fade-in"></div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

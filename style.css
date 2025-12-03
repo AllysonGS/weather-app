@@ -1,0 +1,195 @@
+:root {
+    --bg: #ffffff;
+    --text: #222;
+    --card: #f1f9ff;
+    --accent: #4facfe;
+}
+
+body.dark {
+    --bg: #0f172a;
+    --text: #e2e8f0;
+    --card: #1e293b;
+    --accent: #60a5fa;
+}
+
+body {
+    font-family: "Segoe UI", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    margin: 0;
+    padding: 0;
+    transition: 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+}
+
+.theme-toggle {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+}
+
+.theme-toggle button {
+    padding: 10px 15px;
+    background: var(--accent);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.app-container {
+    margin-top: 60px;
+    background: var(--bg);
+    padding: 30px;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 900px;
+    box-shadow: 0px 8px 20px rgba(0,0,0,0.15);
+    transition: 0.3s;
+}
+
+.search-area {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.search-area input {
+    width: 60%;
+    padding: 10px;
+    border: 2px solid var(--accent);
+    border-radius: 8px;
+    background: var(--bg);
+    color: var(--text);
+}
+
+.search-area button {
+    padding: 10px 20px;
+    background: var(--accent);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* Autocomplete */
+.autocomplete-list {
+    position: absolute;
+    top: 42px;
+    left: 20%;
+    width: 60%;
+    background: var(--card);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    z-index: 10;
+    display: none;
+}
+
+.autocomplete-item {
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.autocomplete-item:hover {
+    background: var(--accent);
+    color: white;
+}
+
+/* Cards */
+.weather-container {
+    margin-top: 25px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
+}
+
+.weather-card {
+    background: var(--card);
+    padding: 20px;
+    border-radius: 14px;
+    /* Padrão para que o texto do cartão principal inicie à esquerda */
+    text-align: left; 
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
+    transition: 0.3s ease;
+}
+
+.weather-card:hover {
+    transform: scale(1.05);
+}
+
+/* CENTRALIZAÇÃO, ORDEM E EMPILHAMENTO (TÍTULO, EMOJI, VALOR) APENAS NOS CARTÕES DE DADOS */
+.weather-card:not(.main-card) {
+    display: flex;
+    flex-direction: column; /* Ordem do HTML: Título, Emoji, Valor */
+    justify-content: center; 
+    align-items: center; 
+    text-align: center; 
+}
+
+
+/* AJUSTE FINAL: CENTRALIZAÇÃO APENAS DO ÍCONE NO CARTÃO PRINCIPAL */
+.main-card #weatherIcon {
+    /* Torna a imagem um bloco para que a margem auto funcione e centralize o ícone */
+    display: block; 
+    margin: 10px auto; 
+}
+
+/* --- NOVO AJUSTE: CENTRALIZAÇÃO DA DESCRIÇÃO DO CLIMA (ex: Nublado) NO CARTÃO PRINCIPAL --- */
+.main-card #weatherDesc {
+    text-align: center;
+    width: 100%; /* Garante que o texto ocupe toda a largura para centralizar */
+}
+/* -------------------------------------------------------------------------------------- */
+
+.icon-large {
+    width: 90px;
+}
+
+.emoji {
+    font-size: 45px;
+    margin-bottom: 10px;
+}
+
+.hidden { display: none; }
+
+.fade-in {
+    animation: fade 0.6s ease;
+}
+
+@keyframes fade {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* AJUSTE DE CAPITALIZAÇÃO DA PRIMEIRA LETRA DE CADA PALAVRA */
+.weather-card p,
+.forecast-card p {
+    text-transform: capitalize;
+}
+
+/* Forecast */
+.section-title {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.forecast-container {
+    display: flex;
+    overflow-x: auto;
+    gap: 15px;
+    padding-bottom: 10px;
+}
+
+.forecast-card {
+    min-width: 150px;
+    background: var(--card);
+    border-radius: 14px;
+    text-align: center;
+    padding: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
