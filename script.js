@@ -1,4 +1,4 @@
-const apiKey = "8309c265bf689feb41acdf4b7faa61c6";
+const apiKey = "SUA_API_KEY_AQUI"; // só para seu site
 
 // Alternância de tema
 document.getElementById("toggleTheme").addEventListener("click", () => {
